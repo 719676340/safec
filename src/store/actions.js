@@ -4,13 +4,14 @@ import {
   UPDATE_COMPANY,
   UPDATE_CHOOSEID,
   GET_FROM,
-  UPDATE_FROM
+  UPDATE_FROM,
+  UPDATE_CHOOSENAME
 } from './mutations-types'
 
 import {
   reqcompanysinfo,
   getfrom
-} from '../api/index'
+} from '../api/index' // 存访问后端的网址
 
 export default{
   async getcompanys ({commit}) {
@@ -21,11 +22,14 @@ export default{
   deletecompany ({commit}, {company}) {
     commit(DELETE_COMPANY, {company})
   },
-  updatecompany ({commit}, {index, name, peoplenum, dangerresources, tel, level, dangername, maindanger, evalname}) {
-    commit(UPDATE_COMPANY, {index, name, peoplenum, dangerresources, tel, level, dangername, maindanger, evalname})
+  updatecompany ({commit}, {num, name, peoplenum, dangerresources, tel, level, dangername, maindanger, evalname}) {
+    commit(UPDATE_COMPANY, {num, name, peoplenum, dangerresources, tel, level, dangername, maindanger, evalname})
   },
   updatechooseid ({commit}, {id}) {
     commit(UPDATE_CHOOSEID, {id})
+  },
+  updatechoosename ({commit}, {name}) {
+    commit(UPDATE_CHOOSENAME, {name})
   },
   async getfrom ({commit}, {companyid, fromno}) {
     const result = await getfrom({companyid, fromno})

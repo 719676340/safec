@@ -10,7 +10,7 @@ import {mapActions} from 'vuex'
 
 export default {
   name: 'App',
-  async mounted () {
+  async mounted () { // 加载
     this.$store.dispatch('getcompanys')
     // this.getcompanys()
     // const result = await reqcompanysinfo()

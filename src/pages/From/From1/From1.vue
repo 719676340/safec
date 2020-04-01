@@ -1,8 +1,8 @@
 <template>
     <div>
-        from1
-        <show-page v-if="isshow" @func="getMsgFormSon"/>
-        <change-page v-if="!isshow" @func="getMsgFormSon"/>
+        <el-switch v-model="isshow" active-text="修改" inactive-text="预览" style="float:right" ></el-switch>
+        <show-page v-if="!isshow" @func="getMsgFormSon"/>
+        <change-page v-if="isshow" @func="getMsgFormSon"/>
     </div>
 </template>
 
@@ -15,7 +15,7 @@ import ShowPage from '../../../components/ShowPage/ShowPage.vue'
 export default {
   data () {
     return {
-      isshow: true
+      isshow: false
     }
   },
   methods: {

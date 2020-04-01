@@ -1,7 +1,7 @@
 <template>
   <div>
-      login
-      <a @click="goto('/company')">跳转到company</a>
+      <!-- login
+      <a @click="goto('/company')">跳转到company</a> -->
       <div>
         <el-form :rules="rules" :model="loginForm" class="loginRoot">
             <h3 class="loginTitle">系统登陆</h3>
@@ -11,13 +11,14 @@
             <el-form-item prop="password">
                 <el-input type="text" v-model="loginForm.password" auto-complete="off" placeholder="请输入密码"/>
             </el-form-item>
-            <el-button type="primary" style="width: 100%" @click="goto('/company')">登陆</el-button>
+            <el-button type="primary" style="width: 100%" @click="login">登陆</el-button>
         </el-form>
     </div>
   </div>
 </template>
 
 <script>
+import {login} from '../../api/index'
 export default {
   name: 'Login',
   data () {
@@ -37,6 +38,29 @@ export default {
   methods: {
     goto (path) {
       this.$router.replace(path)
+    },
+    login () {
+      const username = this.loginForm.username
+      const password = this.loginForm.password
+      console.log(username, password)
+      var result = login({username, password})
+      result.then((xx) => {
+        console.log(xx[0].num)
+        if (xx[0].num === 1) {
+          this.$router.replace('/company')
+        }
+        // this.$router.replace('/company')
+      })
+      // console.log(result)
+      // this.$router.replace('/company')
+      // if (result === 1) {
+      //   console.log(1111)
+      //   this.$router.replace('/company')
+      // } else {
+      //   console.log(222)
+      //   this.loginForm.username = ''
+      //   this.loginForm.password = ''
+      // }
     }
   }
 }

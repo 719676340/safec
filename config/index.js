@@ -9,21 +9,22 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: './',
+    // assetsPublicPath: './',
+    assetsPublicPath: '/', //这个是开发时用这个
     proxyTable: {
       '/api': { // 匹配所有以 '/api'开头的请求路径
-      // target: 'http://localhost:4001/users', // 代理目标的基础路径
-      target: 'http://localhost:3000/users', // 代理目标的基础路径
-      changeOrigin: true, // 支持跨域
-      pathRewrite: {// 重写路径: 去掉路径中开头的'/api'
-        '^/api': ''
-      }
+        target: 'http://localhost:4001/users', // 代理目标的基础路径
+        // target: 'http://182.92.126.18:3000/users', // 代理目标的基础路径
+        changeOrigin: true, // 支持跨域
+        pathRewrite: {// 重写路径: 去掉路径中开头的'/api'
+          '^/api': ''
+        }
       }
     },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8082, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,

@@ -5,7 +5,8 @@ import {
   UPDATE_COMPANY,
   UPDATE_CHOOSEID,
   GET_FROM,
-  UPDATE_FROM
+  UPDATE_FROM,
+  UPDATE_CHOOSENAME
 } from './mutations-types'
 
 export default{
@@ -27,6 +28,9 @@ export default{
   },
   [UPDATE_CHOOSEID] (state, {id}) {
     state.chooseid = id
+  },
+  [UPDATE_CHOOSENAME] (state, {name}) {
+    state.choosename = name
   },
   [GET_FROM] (state, {from}) {
     state.from = from
