@@ -23,7 +23,15 @@
         <el-table-column label="结果" width="width : 10%">
           <template slot-scope="{row,$index}">
             <span v-if="!showEdit[$index]">{{row.result}}</span>
-            <el-input type="text" v-model="resulttext[$index]" v-else placeholder="结果"></el-input>
+            <!-- <el-input type="text" v-model="resulttext[$index]" v-else placeholder="结果"></el-input> -->
+            <el-radio-group v-model="resulttext[$index]" v-else>
+              <el-radio label="符合">符合</el-radio>
+              <el-radio label="不符合">不符合</el-radio>
+            </el-radio-group>
+            <!-- <el-checkbox-group v-model="resulttext[$index]" >
+              <el-checkbox label="符合" >符合</el-checkbox>
+              <el-checkbox label="不符合">不符合</el-checkbox>
+            </el-checkbox-group> -->
           </template>
         </el-table-column>
         <el-table-column label="备注" width="width : 10%">
